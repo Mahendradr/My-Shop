@@ -94,13 +94,13 @@ button:hover {
   text-align: center;
   font-size: 14px;
   margin-top: 15px;
-}
-.signup-link,.login-link Link {
-  color: #4CAF50;
   text-decoration: none;
 }
 
-.signup-link,.login-link Link:hover {
+.signup-link Link:hover {
+  text-decoration: underline;
+}
+.login-link Link:hover{
   text-decoration: underline;
 }
 

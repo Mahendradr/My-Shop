@@ -1,12 +1,16 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './component/Login';
-import Aboutus from './component/Aboutus';
 import Signup from './component/Signup';
 import Home from './component/Home';
 import Navbar from './component/Navbar';
 import Alert from './component/Alert';
 import { useState } from 'react';
+import ProductDetail from './component/ProductDetail';
+import StateUser from './context/user/StateUser';
+import Orders from './component/Orders';
+import OrderState from './context/order/orderState';
+import UserProfile from './component/UserProfile';
 
 function App() {
 
@@ -18,22 +22,27 @@ function App() {
     })
     setTimeout(()=>{
       setAlert(null);
-    },5000) 
+    },3000) 
   }
 
   return (
     <div className="App">
-      
-      <Router>
-        <Navbar showAlert={showAlert} />
-        <Alert alert={alert} />
-        <Routes>        
-          <Route exact path="/" element={<Home />} />
-          <Route exact  path="aboutus" element={<Aboutus />} />
-          <Route exact  path="login" element={<Login showAlert={showAlert}/>} />
-          <Route exact  path="signup" element={<Signup showAlert={showAlert}/>} />
-        </Routes>
-      </Router>
+      <StateUser>
+        <OrderState>
+          <Router>
+            <Navbar showAlert={showAlert} />
+            <Alert alert={alert}/>
+            <Routes>        
+              <Route exact path="/" element={<Home showAlert={showAlert} />} />
+              <Route exact  path="login" element={<Login showAlert={showAlert}/>} />
+              <Route exact  path="signup" element={<Signup showAlert={showAlert}/>} />
+              <Route exact path="product/:id" element={<ProductDetail showAlert={showAlert}/>} />
+              <Route exact  path="userProfile" element={<UserProfile showAlert={showAlert}/>} />
+              <Route exact  path="orders" element={<Orders showAlert={showAlert}/>} />
+            </Routes>
+          </Router>
+        </OrderState>
+      </StateUser>
     </div>
   );
 }

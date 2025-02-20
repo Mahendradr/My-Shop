@@ -44,15 +44,22 @@ const Product = (props) => {
               <div className="col-md-5">
                 <div className="card my-3" style={{width: '18 rem'}} >
                     <img className="card-img-top" src={myImage} alt="Card img cap"/> 
+                    <div style={{padding:"2px",backgroundColor: "#f0f2f5",margin: "10px"}}></div>
                     <div className="card-body">
                           <h5 className="card-title">{product.p_name}</h5>
                           <h5 className="card-title">{product.price} $</h5>
-                          <form onSubmit={handleSubmit}>
+                          {product.stock>0?<form onSubmit={handleSubmit}>
                               <input type="number" id="quantity" name="quantity" min="1" max={product.stock} value={quantity}
                                   onChange={(e) => setQuantity(Number(e.target.value))}
                               />
                               <button type="submit" value="Submit" className="btn btn-primary">Place Order</button>
-                          </form>
+                          </form>:<h4 style={{color:"red"}}>Out Of Stock</h4>}
+                          {/* <form onSubmit={handleSubmit}>
+                              <input type="number" id="quantity" name="quantity" min="1" max={product.stock} value={quantity}
+                                  onChange={(e) => setQuantity(Number(e.target.value))}
+                              />
+                              <button type="submit" value="Submit" className="btn btn-primary">Place Order</button>
+                          </form> */}
                           <Link to="/">Show more product</Link>
                           <p className="card-text"></p>              
                     </div>

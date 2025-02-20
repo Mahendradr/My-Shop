@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* background-color: #f0f2f5; */
 } 
 
 .App{
@@ -39,7 +40,16 @@
 
 /* Login Page Style */
 
-.login-body,.signup-body,.user-body,.product-body{
+.login-body,.signup-body,.user-body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  margin: 0;
+}
+.product-body{
   font-family: Arial, sans-serif;
   background-color: #f0f2f5;
   display: flex;

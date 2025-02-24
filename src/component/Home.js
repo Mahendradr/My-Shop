@@ -10,9 +10,6 @@ const Home = (props) => {
 
   const fetchProducts = async() => {
 
-    // let user = localStorage.getItem('user');
-    // user = JSON.parse(user);
-    // console.log(user[0].id)
     const API_URL = "https://67a31cd8409de5ed52576fba.mockapi.io/product";
     try {
       const response = await axios.get(API_URL);
@@ -21,7 +18,9 @@ const Home = (props) => {
           setLoading(false);
         } 
       } catch (error) {
-        alert("Some Error Occur");
+        alert(error.message)
+        // alert("Some Error Occur");
+        console.log(error.message)
       }
   }
   

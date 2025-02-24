@@ -19,6 +19,8 @@ const ProductDetail = (props) => {
         return false;
       }  
     } catch (error) {
+      alert(error.message)
+      console.log(error.message);
       return false;
     }
   };

@@ -67,7 +67,8 @@ const StateUser = (props)=>{
                 return false;
               }
             } catch (error) {
-                console.log(error)
+                // console.log(error)
+                alert(error.message)
                 console.error('Error deleting user:', error.response || error.message);
             }
       }else{

@@ -53,6 +53,7 @@ const Signup = (props) => {
         return false;
       }  
     } catch (error) {
+      // alert(error.message)
       return false; // or handle the error as needed
     }
   };
@@ -80,8 +81,9 @@ const Signup = (props) => {
             navigate("/login");           
           }
         }} catch (error) {
+          alert(error.message)
           setLoading(false);
-          throw error;
+          // throw error;
         }  
     }
   }

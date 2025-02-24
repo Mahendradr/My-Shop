@@ -11,23 +11,23 @@ const Orders = (props) => {
   const { showAlert }= props;
   const navigate = useNavigate();
   const user = useSelector(state => state.user);
-  const user_id = user.id;
   const context = useContext(OrderContext);
   const { loading, orderExists, orders, getProduct, getOrders } = context;
   if(!loading){
     showLoading = loading;
   }
-      useEffect(()=>{
-        setTimeout(() => {
-          if(localStorage.getItem('user')){
-            getOrders(user_id);
-            getProduct();
-          }else{
-              navigate("/login");
-          }
-        }, 2000);
+  useEffect(()=>{
+    setTimeout(() => {
+      if(localStorage.getItem('user')){
+        
+        getOrders(user.id);
+        getProduct();
+      }else{
+        navigate("/login");
+      }
+    }, 2000);
         // eslint-disable-next-line
-      }, []);
+  }, []);
 
   return (
     <>
